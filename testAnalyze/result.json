@@ -1,0 +1,15 @@
+{
+    "TrafficFile": "anon_3_3_300_0.3_bi.json",
+    "RoadnetFile": "roadnet_3_3.json",
+    "NumberIntersections": 9,
+    "volume": "300",
+    "Features": [
+        "cur_phase",
+        "lane_num_vehicle",
+        "adjacency_matrix",
+        "adjacency_matrix_lane"
+    ],
+    "NumRounds": 3,
+    "MinAverageTravelTime": 147.66112663627004,
+    "MinRunTime": 98.55255055427551
+}

@@ -1,0 +1,54 @@
+nohup: ignoring input
+Using TensorFlow backend.
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:523: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:524: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:527: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:532: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+0
+start train
+# self.eng.reset() to be implemented
+=========================
+{'interval': 1, 'seed': 0, 'laneChange': False, 'dir': 'records/0419afternoon/anon_1_1_100_1.0.json_04_19_05_29_36_30/', 'roadnetFile': 'roadnet_1_1.json', 'flowFile': 'anon_1_1_100_1.0.json', 'rlTrafficLight': True, 'saveReplay': False, 'roadnetLogFile': 'roadnetLogFile.json', 'replayLogFile': 'replayLogFile.txt'}
+Process Process-1:
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.6/multiprocessing/process.py", line 258, in _bootstrap
+    self.run()
+  File "/opt/conda/lib/python3.6/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "run_baseline.py", line 47, in oneline_wrapper
+    oneline.train()
+  File "/colight/baseline/oneline.py", line 171, in train
+    state = self.env.reset()
+  File "/colight/anon_env.py", line 829, in reset
+    for i in range(self.dic_traffic_env_conf["NUM_ROW"])
+  File "/colight/anon_env.py", line 830, in <listcomp>
+    for j in range(self.dic_traffic_env_conf["NUM_COL"])]
+  File "/colight/anon_env.py", line 221, in __init__
+    self._adjacency_row_lanes[lane_id] = [_get_top_k_lane([], self.dic_traffic_env_conf["TOP_K_ADJACENCY_LANE"]),
+AttributeError: 'Intersection' object has no attribute 'dic_traffic_env_conf'
+Traceback (most recent call last):
+  File "run_baseline.py", line 358, in <module>
+    main(args.memo, args.all, args.road_net, args.env, args.gui, args.volume, args.ratio,args.model,args.count,args.lane)
+  File "run_baseline.py", line 341, in main
+    names=["", "enter_time", "leave_time"])
+  File "/opt/conda/lib/python3.6/site-packages/pandas/io/parsers.py", line 685, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "/opt/conda/lib/python3.6/site-packages/pandas/io/parsers.py", line 457, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/opt/conda/lib/python3.6/site-packages/pandas/io/parsers.py", line 895, in __init__
+    self._make_engine(self.engine)
+  File "/opt/conda/lib/python3.6/site-packages/pandas/io/parsers.py", line 1135, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/opt/conda/lib/python3.6/site-packages/pandas/io/parsers.py", line 1917, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 689, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] File b'records/0419afternoon/anon_1_1_100_1.0.json_04_19_05_29_36_30/vehicle_inter_0.csv' does not exist: b'records/0419afternoon/anon_1_1_100_1.0.json_04_19_05_29_36_30/vehicle_inter_0.csv'
